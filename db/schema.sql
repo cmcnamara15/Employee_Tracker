@@ -1,13 +1,16 @@
+-- Create the databases used for storing data 
 DROP DATABASE IF EXISTS employee_db;
 CREATE DATABASE employee_db;
 
 USE employee_db;
 
+-- Table for the department i.e.
 CREATE TABLE department (
     id INT PRIMARY KEY,
     department_name VARCHAR(30) NOT NULL
 );
 
+-- Table for the preset role that employee will fill
 CREATE TABLE role (
     id INT PRIMARY KEY,
     title VARCHAR(30),
@@ -15,10 +18,13 @@ CREATE TABLE role (
     FOREIGN KEY (department_id)
 );
 
+
+-- Table for individual employee info
 CREATE TABLE employee (
     id INT PRIMARY KEY,
     first_name VARCHAR(30),
     last_name VARCHAR(30),
-    role_id INT NOT NULL,
+    FOREIGN KEY role_id,
     manager_id INT NOT NULL
+    -- ^ does this need to be foreign key?
 )
