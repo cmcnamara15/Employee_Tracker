@@ -13,5 +13,5 @@ CREATE TABLE role (
     title VARCHAR(30),
     salary DECIMAL,
     FOREIGN KEY (department_id)
-)
+);
 
