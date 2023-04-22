@@ -37,6 +37,13 @@ function main(){
                 console.table(dataRes)
                 main();
             })
+        // } else {
+        // if(answers.action == 'view all roles'){
+        //     db.query('SELECT * FROM role;', (err, dataRes)=> {
+        //         console.table(dataRes)
+        //         main();
+        //     })
+        // }
         }
     })
 }
