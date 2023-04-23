@@ -8,11 +8,6 @@ const db = mysql.createConnection({
     database: 'employee_db'
 });
 
-const questions = [
-    {
-
-    },
-]
 
 function main(){
     inquirer.prompt([
