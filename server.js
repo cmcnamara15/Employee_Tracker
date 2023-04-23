@@ -26,7 +26,7 @@ function main(){
             ]
         }
     ])
-    .then((answers)=> {
+        .then((answers)=> {
         if(answers.action == 'view all departments'){
             db.query('SELECT * FROM department;', (err, dataRes)=> {
                 console.table(dataRes)
@@ -38,9 +38,18 @@ function main(){
                 console.table(dataRes)
                 main();
             })
-        }
-        }
-    })
+        } else {
+        if(answers.action == 'view all employees'){
+            db.query('SELECT * FROM employee;', (err, dataRes)=> {
+                console.table(dataRes)
+                main();
+            })
+        } 
+    }
+    }
+})
 }
+
+
 
 main();
