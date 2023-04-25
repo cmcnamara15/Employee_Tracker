@@ -9,8 +9,9 @@ const db = mysql.createConnection({
 });
 
 
-function main(){
-    inquirer.prompt([
+function main() {
+    inquirer
+        .prompt([
         {
             type: 'list',
             message: 'What would you like to choose?',
@@ -23,33 +24,44 @@ function main(){
                 'add a role',
                 'add an employee',
                 'update a employee role'
-            ]
-        }
+            ],
+        },
     ])
         .then((answers)=> {
-        if(answers.action == 'view all departments'){
-            db.query('SELECT * FROM department;', (err, dataRes)=> {
-                console.table(dataRes)
-                main();
-            })
-        } else {
-        if(answers.action == 'view all roles'){
-            db.query('SELECT * FROM role;', (err, dataRes)=> {
-                console.table(dataRes)
-                main();
-            })
-        } else {
-        if(answers.action == 'view all employees'){
-            db.query('SELECT * FROM employee;', (err, dataRes)=> {
-                console.table(dataRes)
-                main();
-            })
-        } 
-    }
-    }
-})
+        switch (answers.action) {
+            case "view all departments":
+                db.query("SELECT * FROM department;", (err, dataRes) => {
+                    console.table(dataRes);
+                    main();
+                });
+                break;
+            case "view all roles":
+                db.query("SELECT * FROM role;", (err, dataRes) => {
+                    console.table(dataRes);
+                    main();
+                });
+                break;
+            case "view all employees":
+                db.query("SELECT * FROM employee;", (err, dataRes) => {
+                    console.table(dataRes);
+                    main();
+                });
+                break;
+            case "add a department":
+                db.query("CREATE;", (err, dataRes) => {
+                    console.table(dataRes);
+                    main();
+                });
+                break;
+                default:
+                    console.log("Invalid action.");
+                    main();
+                    break;
+            }
+        });
 }
 
 
 
-main();
+
+main()
