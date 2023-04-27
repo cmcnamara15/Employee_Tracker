@@ -53,6 +53,8 @@ function main() {
                     main();
                 });
                 break;
+                case "add a role":
+                    db.query(";", (err))
                 default:
                     console.log("Invalid action.");
                     main();

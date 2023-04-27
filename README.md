@@ -24,7 +24,7 @@ This project was built as an exercise in writing content management systems(CMS)
 [Repository URL](https://github.com/cmcnamara15/Employee_Tracker)<br />
 
 ## Installation
-MYSQL, Nodejs, Inquirer@8.2.4<br />
+MYSQL, MYSQL2, Nodejs, Inquirer@8.2.4<br />
 
 ## Usage Information
 The user should be familiar with the basic formatting of README files.<br />
