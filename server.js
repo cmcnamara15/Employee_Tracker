@@ -48,7 +48,7 @@ function main() {
                 });
                 break;
             case "add a department":
-                db.query("CREATE;", (err, dataRes) => {
+                db.query("", (err, dataRes) => {
                     console.table(dataRes);
                     main();
                 });
