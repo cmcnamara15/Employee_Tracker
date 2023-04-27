@@ -9,6 +9,26 @@ const db = mysql.createConnection({
 });
 
 
+function addDepartment(){
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: 'What do you want to name it?',
+                name: 'addDep'
+            },
+        ])
+        .then(answers => {
+            db.query('INSERT INTO DEPARTMENT (department_name) VALUES (?)', [answers.addDep], (err, dataRes) => {
+                main();
+            })
+        })
+}
+
+
+
+
+
 function main() {
     inquirer
         .prompt([
@@ -48,12 +68,9 @@ function main() {
                 });
                 break;
             case "add a department":
-                db.query("", (err, dataRes) => {
-                    console.table(dataRes);
-                    main();
-                });
+                addDepartment();
                 break;
-                case "add a role":
+            case "add a role":
                     db.query(";", (err))
                 default:
                     console.log("Invalid action.");
@@ -62,8 +79,4 @@ function main() {
             }
         });
 }
-
-
-
-
 main()
