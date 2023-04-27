@@ -40,12 +40,43 @@ function addRole(){
             },
             {
                 type: 'input',
+                message: 'What is the department ID?',
+                name: 'deptId'
+            }
+        ])
+        .then(answers => {
+            db.query('INSERT INTO ROLE (title, salary, department_id) VALUES (?, ?, ?)', [answers.role, answers.salary, answers.deptId], (err, dataRes) => {
+                main();
+            })
+        })
+}
+
+function addEmployee(){
+    inquirer
+        .prompt ([
+            {
+                type: 'input',
+                message: 'What is the employees first name?',
+                name: 'firstName'
+            },
+            {
+                type: 'input',
+                message: 'What is the employees last name?',
+                name: 'lastName'
+            },
+            {
+                type: 'input',
+                message: 'Please enter new employee role ID',
+                name: 'roleId'
+            },
+            {
+                type: 'input',
                 message: 'What is the manager id? (if manager enter NULL)',
                 name: 'managerId'
             }
         ])
         .then(answers => {
-            db.query('INSERT INTO ROLE (title, salary, department_id) VALUES (?, ?, ?)', [answers.role, answers.salary, answers.managerId], (err, dataRes) => {
+            db.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', [answers.firstName, answers.lastName, answers.roleId, answers.managerId], (err, dataRes) => {
                 main();
             })
         })
@@ -96,6 +127,9 @@ function main() {
                 break;
             case "add a role":
                 addRole();
+                break;
+            case "add an employee":
+                addEmployee();
                 break;
                 default:
                     console.log("Invalid action.");
