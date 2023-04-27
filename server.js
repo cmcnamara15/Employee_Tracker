@@ -14,7 +14,7 @@ function addDepartment(){
         .prompt([
             {
                 type: 'input',
-                message: 'What do you want to name it?',
+                message: 'What department would you like to add?',
                 name: 'addDep'
             },
         ])
@@ -25,7 +25,31 @@ function addDepartment(){
         })
 }
 
-
+function addRole(){
+    inquirer
+        .prompt ([
+            {
+                type: 'input',
+                message: 'What is the title of the role would you like to add?',
+                name: 'role'
+            },
+            {
+                type: 'input',
+                message: 'What is the annual salary for this role?',
+                name: 'salary'
+            },
+            {
+                type: 'input',
+                message: 'What is the manager id? (if manager enter NULL)',
+                name: 'managerId'
+            }
+        ])
+        .then(answers => {
+            db.query('INSERT INTO ROLE (title, salary, department_id) VALUES (?, ?, ?)', [answers.role, answers.salary, answers.managerId], (err, dataRes) => {
+                main();
+            })
+        })
+}
 
 
 
@@ -71,7 +95,8 @@ function main() {
                 addDepartment();
                 break;
             case "add a role":
-                    db.query(";", (err))
+                addRole();
+                break;
                 default:
                     console.log("Invalid action.");
                     main();
