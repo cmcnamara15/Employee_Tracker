@@ -82,6 +82,9 @@ function addEmployee(){
         })
 }
 
+function updateRole(){
+    
+}
 
 
 function main() {
