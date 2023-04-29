@@ -83,7 +83,22 @@ function addEmployee(){
 }
 
 function updateRole(){
-    
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: "Which employee's role would you like to update?",
+                name: 'employeeUpdate',
+            },
+            {
+                type: 'input',
+                message: 'What role would you like to assign the selected employee?',
+                name: 'newRole'
+            }
+        ])
+        .then(answers => {
+            db.query('', )
+        })
 }
 
 
@@ -133,6 +148,9 @@ function main() {
                 break;
             case "add an employee":
                 addEmployee();
+                break;
+            case "update a employee role":
+                updateRole();
                 break;
                 default:
                     console.log("Invalid action.");
