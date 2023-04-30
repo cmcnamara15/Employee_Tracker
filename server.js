@@ -19,7 +19,8 @@ function addDepartment(){
             },
         ])
         .then(answers => {
-            db.query('INSERT INTO DEPARTMENT (department_name) VALUES (?)', [answers.addDep], (err, dataRes) => {
+            db.query('INSERT INTO DEPARTMENT (department_name) VALUES (?)', 
+            [answers.addDep], (err, dataRes) => {
                 main();
             })
         })
@@ -45,7 +46,8 @@ function addRole(){
             }
         ])
         .then(answers => {
-            db.query('INSERT INTO ROLE (title, salary, department_id) VALUES (?, ?, ?)', [answers.role, answers.salary, answers.deptId], (err, dataRes) => {
+            db.query('INSERT INTO ROLE (title, salary, department_id) VALUES (?, ?, ?)', 
+            [answers.role, answers.salary, answers.deptId], (err, dataRes) => {
                 main();
             })
         })
@@ -81,7 +83,8 @@ function addEmployee(){
             }
         ])
         .then(answers => {
-            db.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', [answers.firstName, answers.lastName, answers.roleId, answers.managerId], (err, dataRes) => {
+            db.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', 
+            [answers.firstName, answers.lastName, answers.roleId, answers.managerId], (err, dataRes) => {
                 main();
             })
         })
@@ -89,12 +92,18 @@ function addEmployee(){
 }
 
 function updateRole(){
+    db.query('SELECT * FROM EMPLOYEE', (err, data)=> {
+        const employees = data.map(row => { 
+            return {name: row.title, value: row.id}
+        })
+    })
     inquirer
         .prompt([
             {
-                type: 'input',
+                type: 'list',
                 message: "Which employee's role would you like to update?",
                 name: 'employeeUpdate',
+                choices: employees
             },
             {
                 type: 'input',
@@ -103,7 +112,7 @@ function updateRole(){
             }
         ])
         .then(answers => {
-            db.query('', )
+            db.query('INSERT INTO role', )
         })
 }
 
