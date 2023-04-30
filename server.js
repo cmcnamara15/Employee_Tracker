@@ -52,7 +52,11 @@ function addRole(){
 }
 
 function addEmployee(){
-    inquirer
+    db.query('SELECT * FROM ROLE', (err, data)=> {
+        const roles = data.map(row => {
+            return {name: row.title, value: row.id}
+        })
+        inquirer
         .prompt ([
             {
                 type: 'input',
@@ -65,9 +69,10 @@ function addEmployee(){
                 name: 'lastName'
             },
             {
-                type: 'input',
+                type: 'list',
                 message: 'Please enter new employee role ID',
-                name: 'roleId'
+                name: 'roleId',
+                choices: roles
             },
             {
                 type: 'input',
@@ -80,6 +85,7 @@ function addEmployee(){
                 main();
             })
         })
+    })
 }
 
 function updateRole(){
