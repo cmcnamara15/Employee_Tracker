@@ -92,10 +92,15 @@ function addEmployee(){
 }
 
 function updateRole(){
-    db.query('SELECT * FROM EMPLOYEE', (err, data)=> {
+    db.query('SELECT * FROM employee', (err, data)=> {
         const employees = data.map(row => { 
             return {name: row.title, value: row.id}
+        });
+    db.query('SELECT * FROM role', (err, data) => {
+        const newRole = data.map(row => {
+            return {name: row.title, value: row.id}
         })
+    })
     })
     inquirer
         .prompt([
@@ -108,11 +113,11 @@ function updateRole(){
             {
                 type: 'input',
                 message: 'What role would you like to assign the selected employee?',
-                name: 'newRole'
+                name: newRole
             }
         ])
         .then(answers => {
-            db.query('INSERT INTO role', )
+            db.query('UPDATE role (title, salary, department_id) VALUES(?)', )
         })
 }
 
