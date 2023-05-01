@@ -48,20 +48,19 @@ Email: cmcnamara1991@icloud.com
 
 The following screenshots shows the apps functionality.<br />
 
-<!-- 
-## Node in terminal<br />
 
-![Screenshot of the program running in the terminal](./assets/screenshot1.png)
+## Program running in terminal<br />
 
-## Generated output file<br />
+![Screenshot of the program running in the terminal](./assets/screenshot_1.png)
 
-![Screenshot of output example](./assets/screenshot2.png)
+## Example of database in terminal<br />
 
-## Failed Test result<br />
+![Screenshot of output example](./assets/screenshot_2.png)
+
+<!-- ## Failed Test result<br />
 
 ![Example of failed test](./assets/failedtest.png)
 
 ## Inquirer prompts complete<br />
 
-![Example of passed test](./assets/passedtest.png)
- -->
+![Example of passed test](./assets/passedtest.png) -->

@@ -99,7 +99,7 @@ function updateRole(){
     db.query('SELECT * FROM role', (err, data) => {
         const newRole = data.map(row => {
             return {name: row.title, value: row.id}
-        })
+        });
 
     inquirer
         .prompt([
