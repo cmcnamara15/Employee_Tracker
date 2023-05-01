@@ -100,8 +100,7 @@ function updateRole(){
         const newRole = data.map(row => {
             return {name: row.title, value: row.id}
         })
-    })
-    })
+
     inquirer
         .prompt([
             {
@@ -113,12 +112,15 @@ function updateRole(){
             {
                 type: 'input',
                 message: 'What role would you like to assign the selected employee?',
-                name: newRole
+                name: 'newRole',
+                choices: newRole
             }
         ])
         .then(answers => {
-            db.query('UPDATE role (title, salary, department_id) VALUES(?)', )
+            db.query('UPDATE employee SET role (title, salary, department_id) VALUES(?)', )
         })
+    })
+})
 }
 
 
