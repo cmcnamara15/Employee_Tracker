@@ -110,14 +110,16 @@ function updateRole(){
                 choices: employees
             },
             {
-                type: 'input',
+                type: 'list',
                 message: 'What role would you like to assign the selected employee?',
                 name: 'newRole',
                 choices: newRole
             }
         ])
         .then(answers => {
-            db.query('UPDATE employee SET role (title, salary, department_id) VALUES(?)', )
+            db.query('UPDATE employee SET role WHERE role_id = ?', [answers.newRole], (err, data)=> {
+                main();
+            } )
         })
     })
 })
