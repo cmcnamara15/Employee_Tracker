@@ -1,5 +1,7 @@
 # Employee Tracker
+#[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![Screenshot of output example](./assets/screenshot_2.png)
 
 ## Table of Contents    
 - [Description](#description)
@@ -53,14 +55,5 @@ The following screenshots shows the apps functionality.<br />
 
 ![Screenshot of the program running in the terminal](./assets/screenshot_1.png)
 
-## Example of database in terminal<br />
+<!-- ## Example of database in terminal<br /> -->
 
-![Screenshot of output example](./assets/screenshot_2.png)
-
-<!-- ## Failed Test result<br />
-
-![Example of failed test](./assets/failedtest.png)
-
-## Inquirer prompts complete<br />
-
-![Example of passed test](./assets/passedtest.png) -->
