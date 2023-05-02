@@ -119,7 +119,7 @@ function updateRole(){
         .then(answers => {
             db.query('UPDATE employee SET role WHERE role_id = ?', [answers.newRole], (err, data)=> {
                 main();
-            } )
+            })
         })
     })
 })
