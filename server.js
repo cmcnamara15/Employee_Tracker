@@ -8,6 +8,28 @@ const db = mysql.createConnection({
     database: 'employee_db'
 });
 
+const viewRolesQuery = `
+select r.title, r.salary, d.department_name
+    from role r
+    join department d on d.id = r.department_id;
+`;
+
+// view employees data
+// name- employeeTable 
+// employee_id - employeeTable
+// title - roleTable 
+// department - departmentTable
+// manager name - employeeTable
+
+const viewEmployeeQuery =
+`
+select e.first_name, e.last_name, r.title, r.salary, d.department_name, concat(m.first_name, ' ', m.last_name) as manager_name
+from employee e 
+join role r on e.role_id = r.id
+join department d on r.department_id = d.id
+left join employee m on e.manager_id = m.id
+`
+
 
 function addDepartment(){
     inquirer
@@ -94,13 +116,13 @@ function addEmployee(){
 function updateRole(){
     db.query('SELECT * FROM employee', (err, data)=> {
         const employees = data.map(row => { 
-            return {name: row.title, value: row.last_name}
+            return {name: `${row.first_name} ${row.last_name}`, value: row.id}
         });
     db.query('SELECT * FROM role', (err, data) => {
         const newRole = data.map(row => {
             return {name: row.title, value: row.id}
         });
-
+        console.log(employees)
     inquirer
         .prompt([
             {
@@ -117,7 +139,8 @@ function updateRole(){
             }
         ])
         .then(answers => {
-            db.query('UPDATE employee SET role WHERE role_id = ?', [answers.newRole], (err, data)=> {
+            console.log(answers)
+            db.query('UPDATE employee SET role_id = ? WHERE id = ?', [answers.newRole, answers.employeeUpdate], (err, data)=> {
                 main();
             })
         })
@@ -153,13 +176,13 @@ function main() {
                 });
                 break;
             case "view all roles":
-                db.query("SELECT * FROM role;", (err, dataRes) => {
+                db.query(viewRolesQuery, (err, dataRes) => {
                     console.table(dataRes);
                     main();
                 });
                 break;
             case "view all employees":
-                db.query("SELECT * FROM employee;", (err, dataRes) => {
+                db.query(viewEmployeeQuery, (err, dataRes) => {
                     console.table(dataRes);
                     main();
                 });
