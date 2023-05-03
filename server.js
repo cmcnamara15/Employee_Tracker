@@ -8,10 +8,12 @@ const db = mysql.createConnection({
     database: 'employee_db'
 });
 
+// Query that i pass through as a variable to view roles
+
 const viewRolesQuery = `
-select r.title, r.salary, d.department_name
-    from role r
-    join department d on d.id = r.department_id;
+SELECT r.title, r.salary, d.department_name
+    FROM role r
+    JOIN department d ON d.id = r.department_id;
 `;
 
 // view employees data
@@ -21,16 +23,17 @@ select r.title, r.salary, d.department_name
 // department - departmentTable
 // manager name - employeeTable
 
+// Query passed through to view employees and their associated roles 
 const viewEmployeeQuery =
 `
-select e.first_name, e.last_name, r.title, r.salary, d.department_name, concat(m.first_name, ' ', m.last_name) as manager_name
-from employee e 
-join role r on e.role_id = r.id
-join department d on r.department_id = d.id
-left join employee m on e.manager_id = m.id
+SELECT e.first_name, e.last_name, r.title, r.salary, d.department_name, concat(m.first_name, ' ', m.last_name) AS manager_name
+FROM employee e 
+JOIN role r ON e.role_id = r.id
+JOIN department d ON r.department_id = d.id
+LEFT JOIN employee m ON e.manager_id = m.id
 `
 
-
+// Function to add a department 
 function addDepartment(){
     inquirer
         .prompt([
@@ -48,6 +51,7 @@ function addDepartment(){
         })
 }
 
+// Function to add a role
 function addRole(){
     inquirer
         .prompt ([
@@ -75,6 +79,8 @@ function addRole(){
         })
 }
 
+
+// Function to add a employee
 function addEmployee(){
     db.query('SELECT * FROM ROLE', (err, data)=> {
         const roles = data.map(row => {
@@ -113,6 +119,7 @@ function addEmployee(){
     })
 }
 
+// Function to update a role
 function updateRole(){
     db.query('SELECT * FROM employee', (err, data)=> {
         const employees = data.map(row => { 
@@ -148,7 +155,7 @@ function updateRole(){
 })
 }
 
-
+// Main function called in program, gives the user a list of choices
 function main() {
     inquirer
         .prompt([
