@@ -171,7 +171,7 @@ function main() {
                 'view all employees',
                 'add a department',
                 'add a role',
-                'add an employee',
+                'add a employee',
                 'update a employee role'
             ],
         },
