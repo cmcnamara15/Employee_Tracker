@@ -13,14 +13,14 @@
 - [Test Instructions](#test-instructions)
 - [License](#license)
 - [Screenshots](#screenshots)
-- [README Documentation](#readme-docmentation)
+
 
 ## Description
 This project was built as an exercise in writing content management systems(CMS). Using Inquirer, I built a command-line application that that manages a mock company's employee database. This application allows the user to view the departments, roles and individual employee information using their command line. 
 
 
 ## Demo Video 
-[Demo Video]()<br />
+[Demo Video](https://drive.google.com/file/d/18ci75wFrlfaL-EJATuu0A6jcj9XfTPJ0/view)<br />
 
 ## REPO URL
 [Repository URL](https://github.com/cmcnamara15/Employee_Tracker)<br />
@@ -29,7 +29,7 @@ This project was built as an exercise in writing content management systems(CMS)
 MYSQL, MYSQL2, Nodejs, Inquirer@8.2.4<br />
 
 ## Usage Information
-The user should be familiar with the basic formatting of README files.<br />
+The user should be familiar with running commands in the terminal. Sourcing and seeding data and starting a server.<br />
 
 ## Contribution Guidelines 
 Starter code was obtained from the UT Full Stack Coding Bootcamp. Open to collaboration and contribution.<br />
