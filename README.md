@@ -30,6 +30,10 @@ MYSQL, MYSQL2, Nodejs, Inquirer@8.2.4<br />
 
 ## Usage Information
 The user should be familiar with running commands in the terminal. Sourcing and seeding data and starting a server.<br />
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000&style=for-the-badge" alt="JavaScript Badge">
+<img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff&style=for-the-badge" alt="MySQL Badge">
+<img src="https://img.shields.io/badge/Node.js-393?logo=nodedotjs&logoColor=fff&style=for-the-badge" alt="Node.js Badge">
+
 
 ## Contribution Guidelines 
 Starter code was obtained from the UT Full Stack Coding Bootcamp. Open to collaboration and contribution.<br />
